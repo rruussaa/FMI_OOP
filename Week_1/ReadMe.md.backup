@@ -79,7 +79,23 @@ int main()
             if (arr1[i].Area < arr1[j].Area) { // biggest to put n the i place 
                 triangle temp = arr1[i]; // we swap the i triangle with the bigger j triangle
                 arr1[i] = arr1[j]; // we use a temp value to do the swap
-  
+                arr1[j] = temp; // we can do it with a = a+b, b = a - b, a = a - b but if we do it like that
+            }// we can loose information if a+b > than the max of double
+        }
+    }
+
+    std::cout << "printing the triangles sorted by area" << "\n";
+
+    for (int i = 0; i < n; i++) { //  we use for loop to go trough all n triangles
+        std::cout << "Triangle " << i << " Area " << arr1[i].Area << "  --  "; // we print the Area
+        std::cout << "Points: " << arr1[i].p1.x<<" " << arr1[i].p1.y << " " << arr1[i].p2.x << " " << arr1[i].p2.y << " " << arr1[i].p3.x << " " << arr1[i].p3.y << "\n";
+        // we print each point of the triangle
+    }
+
+    delete[] arr1; // we delete the array that we alocated in the dynamic memory in order not to have a memory leak
+
+    return 0;
+}
 
 ```
  В OOP_task_1_notcomplete.cpp има частично решение, което само смята лицата на триъгълниците без да ги сортира, за да може по-лесно да се проследи хода на програмата.
@@ -167,21 +183,11 @@ Rational divide(const Rational& A, const Rational& B) {
 }
 
 bool isRational(const Rational& A) { // here we check if q = 0 
-    if (A.q == 0) {
-        return false; // if q = 0 A is not a rational
-    }
-    else {
-        return true; // if q != 0 A is rational
-    }
+    return A.q; // if q = 0 A is not a rational if q != 0 A is rational
 }
 
 bool isInt(const Rational& A) { // we check if A is a whole number
-    if (A.p % A.q == 0) { // if p is devidable by q than A is a int 
-        return true;
-    }
-    else {
-        return false; // else it isn't
-    }
+    return !(A.p % A.q); // if p is devidable by q than A is a int else it isn't
 }
 
 int main()
@@ -208,6 +214,7 @@ int main()
     std::cout << isRational(D); // we test isRational
     return 0;
 }
+
 ```
 
  
