@@ -5,7 +5,7 @@
 
 ## Моето решение :
 
-```
+```c++
 #include <iostream>
 //#include <cmath>
 
