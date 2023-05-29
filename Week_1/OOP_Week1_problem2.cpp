@@ -71,21 +71,11 @@ Rational divide(const Rational& A, const Rational& B) {
 }
 
 bool isRational(const Rational& A) { // here we check if q = 0 
-    if (A.q == 0) {
-        return false; // if q = 0 A is not a rational
-    }
-    else {
-        return true; // if q != 0 A is rational
-    }
+    return A.q; // if q = 0 A is not a rational if q != 0 A is rational
 }
 
 bool isInt(const Rational& A) { // we check if A is a whole number
-    if (A.p % A.q == 0) { // if p is devidable by q than A is a int 
-        return true;
-    }
-    else {
-        return false; // else it isn't
-    }
+    return A.p% A.q; // if p is devidable by q than A is a int else it isn't
 }
 
 int main()
